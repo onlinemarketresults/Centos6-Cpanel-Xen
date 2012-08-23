@@ -13,7 +13,7 @@ TMPLUUID=$(xe template-list | grep -B1 'name-label.*Red Hat.* 6.*64-bit' | awk -
 VMUUID=$(xe vm-install new-name-label="CentOS6-cPanel" template=${TMPLUUID})
 xe vif-create vm-uuid=$VMUUID network-uuid=$NETUUID mac=random device=0
 xe vm-param-set uuid=$VMUUID other-config:install-repository=http://mirror.centos.org/centos/6/os/x86_64
-xe vm-param-set uuid=$VMUUID PV-args="ks=https://github.com/onlinemarketresults/Centos6-Cpanel-Xen/raw/master/cpanel-config/cpanel-ks.cfg ksdevice=eth0"
+xe vm-param-set uuid=$VMUUID PV-args="ks=https://github.com/onlinemarketresults/Centos6-Cpanel-Xen/raw/master/cpanel_configs/cpanel-ks.cfg ksdevice=eth0"
 #Disable VNC for headless environment we can monitor via text console
 xe vm-param-set uuid=${VMUUID} other-config:disable_pv_vnc=1
 
